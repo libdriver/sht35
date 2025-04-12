@@ -96,6 +96,12 @@ $(document).ready(function(){initNavTree('group__sht35__test__driver.html',''); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga445bd9d090745a9bd66300dd892ae7ad"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sht35__test__driver.html#ga445bd9d090745a9bd66300dd892ae7ad">sht35_alert_test_irq_handler</a> (void)</td></tr>
+<tr class="memdesc:ga445bd9d090745a9bd66300dd892ae7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">alert test irq  <a href="group__sht35__test__driver.html#ga445bd9d090745a9bd66300dd892ae7ad">More...</a><br /></td></tr>
+<tr class="separator:ga445bd9d090745a9bd66300dd892ae7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3cc8dd24ddee1908c50a06d0ea8c57d7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sht35__test__driver.html#ga3cc8dd24ddee1908c50a06d0ea8c57d7">sht35_alert_test</a> (<a class="el" href="group__sht35__base__driver.html#ga467880acc8613d694e48542e838dc427">sht35_address_t</a> addr_pin, float high_limit_temperature, float high_limit_humidity, float low_limit_temperature, float low_limit_humidity, uint32_t timeout)</td></tr>
+<tr class="memdesc:ga3cc8dd24ddee1908c50a06d0ea8c57d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">alert test  <a href="group__sht35__test__driver.html#ga3cc8dd24ddee1908c50a06d0ea8c57d7">More...</a><br /></td></tr>
+<tr class="separator:ga3cc8dd24ddee1908c50a06d0ea8c57d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8f55876b099cae1fbd27a2833c30bc1c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sht35__test__driver.html#ga8f55876b099cae1fbd27a2833c30bc1c">sht35_read_test</a> (<a class="el" href="group__sht35__base__driver.html#ga467880acc8613d694e48542e838dc427">sht35_address_t</a> addr_pin, uint32_t times)</td></tr>
 <tr class="memdesc:ga8f55876b099cae1fbd27a2833c30bc1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">read test  <a href="group__sht35__test__driver.html#ga8f55876b099cae1fbd27a2833c30bc1c">More...</a><br /></td></tr>
 <tr class="separator:ga8f55876b099cae1fbd27a2833c30bc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,6 +112,107 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>sht35 test driver modules </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga3cc8dd24ddee1908c50a06d0ea8c57d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3cc8dd24ddee1908c50a06d0ea8c57d7">&#9670;&nbsp;</a></span>sht35_alert_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t sht35_alert_test </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__sht35__base__driver.html#ga467880acc8613d694e48542e838dc427">sht35_address_t</a>&#160;</td>
+          <td class="paramname"><em>addr_pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>high_limit_temperature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>high_limit_humidity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>low_limit_temperature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>low_limit_humidity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alert test </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr_pin</td><td>iic device address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">high_limit_temperature</td><td>high limit temperature </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">high_limit_humidity</td><td>high limit humidity </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">low_limit_temperature</td><td>low limit temperature </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">low_limit_humidity</td><td>low limit humidity </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td>timeout in ms </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status code<ul>
+<li>0 success</li>
+<li>1 test failed </li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__sht35__alert__test_8c_source.html#l00102">102</a> of file <a class="el" href="driver__sht35__alert__test_8c_source.html">driver_sht35_alert_test.c</a>.</p>
+
+</div>
+</div>
+<a id="ga445bd9d090745a9bd66300dd892ae7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga445bd9d090745a9bd66300dd892ae7ad">&#9670;&nbsp;</a></span>sht35_alert_test_irq_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t sht35_alert_test_irq_handler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alert test irq </p>
+<dl class="section return"><dt>Returns</dt><dd>status code<ul>
+<li>0 success</li>
+<li>1 run failed </li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__sht35__alert__test_8c_source.html#l00079">79</a> of file <a class="el" href="driver__sht35__alert__test_8c_source.html">driver_sht35_alert_test.c</a>.</p>
+
+</div>
+</div>
 <a id="ga8f55876b099cae1fbd27a2833c30bc1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8f55876b099cae1fbd27a2833c30bc1c">&#9670;&nbsp;</a></span>sht35_read_test()</h2>
 

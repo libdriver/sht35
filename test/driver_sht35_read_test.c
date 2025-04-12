@@ -62,6 +62,7 @@ uint8_t sht35_read_test(sht35_address_t addr_pin, uint32_t times)
     DRIVER_SHT35_LINK_IIC_WRITE_ADDRESS16(&gs_handle, sht35_interface_iic_write_address16);
     DRIVER_SHT35_LINK_DELAY_MS(&gs_handle, sht35_interface_delay_ms);
     DRIVER_SHT35_LINK_DEBUG_PRINT(&gs_handle, sht35_interface_debug_print);
+    DRIVER_SHT35_LINK_RECEIVE_CALLBACK(&gs_handle, sht35_interface_receive_callback);
     
     /* sht35 info */
     res = sht35_info(&info);

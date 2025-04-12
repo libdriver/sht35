@@ -429,6 +429,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\test\driver_sht35_read_test.c</FilePath>
             </File>
+            <File>
+              <FileName>driver_sht35_alert_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\test\driver_sht35_alert_test.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -443,6 +448,11 @@
               <FileName>driver_sht35_shot.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\example\driver_sht35_shot.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_sht35_alert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\example\driver_sht35_alert.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -483,6 +493,11 @@
               <FileName>iic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\interface\src\iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\interface\src\gpio.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -964,7 +979,7 @@
   <LayerInfo>
     <Layers>
       <Layer>
-        <LayName>&lt;Project Info&gt;</LayName>
+        <LayName>stm32f407</LayName>
         <LayTarg>0</LayTarg>
         <LayPrjMark>1</LayPrjMark>
       </Layer>

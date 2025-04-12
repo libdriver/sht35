@@ -6,6 +6,8 @@ Board Name: Raspberry Pi 4B.
 
 IIC Pin: SCL/SDA GPIO3/GPIO2.
 
+GPIO Pin: INT GPIO17.
+
 ### 2. Install
 
 #### 2.1 Dependencies
@@ -70,7 +72,6 @@ Find the compiled library in CMake.
 find_package(sht35 REQUIRED)
 ```
 
-
 ### 3. SHT35
 
 #### 3.1 Command Instruction
@@ -105,16 +106,32 @@ find_package(sht35 REQUIRED)
    sht35 (-t read | --test=read) [--addr=<0 | 1>] [--times=<num>]
    ```
 
-6. Run sht35 read function, num is read times.
+6. Run sht35 alert test, ms is the timeout in ms, degree is the degree of limit, percentage is the percentage of limit.
+
+   ```shell
+   sht35 (-t alert | --test=alert) [--addr=<0 | 1>] [--timeout=<ms>] [--high-limit-temp=<degree>] [--high-limit-humi=<percentage>][--low-limit-temp=<degree>] [--low-limit-humi=<percentage>]
+   ```
+
+7. Run sht35 read function, num is read times.
 
    ```shell
    sht35 (-e read | --example=read) [--addr=<0 | 1>] [--times=<num>]
    ```
 
-7. Run sht35 shot function, num is read times.
+8. Run sht35 shot function, num is read times.
 
    ```shell
    sht35 (-e shot | --example=shot) [--addr=<0 | 1>] [--times=<num>]
+   ```
+9. Run sht35 alert function, ms is the timeout in ms, degree is the degree of limit, percentage is the percentage of limit.
+
+   ```shell
+   sht35 (-e alert | --example=alert) [--addr=<0 | 1>] [--timeout=<ms>] [--high-limit-temp=<degree>] [--high-limit-humi=<percentage>][--low-limit-temp=<degree>] [--low-limit-humi=<percentage>]
+   ```
+10. Run sht35 sn function.
+
+   ```shell
+   sht35 (-e sn | --example=sn) [--addr=<0 | 1>]
    ```
 
 #### 3.2 Command Example
@@ -138,6 +155,7 @@ sht35: min temperature is -40.0C.
 
 sht35: SCL connected to GPIO3(BCM).
 sht35: SDA connected to GPIO2(BCM).
+sht35: ALERT connected to GPIO17(BCM).
 ```
 
 ```shell
@@ -172,10 +190,25 @@ sht35: enable heater.
 sht35: check heater ok.
 sht35: disable heater.
 sht35: check heater ok.
-sht35: get status test.
+sht35: sht35_get_status test.
 sht35: check status 0x8070.
-sht35: clear status test.
+sht35: sht35_clear_status test.
 sht35: check clear status ok.
+sht35: sht35_get_serial_number test.
+sht35: serial number is 0x10 0xE2 0x41 0x1F.
+sht35: sht35_set_high_alert_limit/sht35_get_high_alert_limit test.
+sht35: set is 0xF6F7.
+sht35: clear is 0x934B.
+sht35: check high alert limit set ok.
+sht35: check high alert limit clear ok.
+sht35: sht35_set_low_alert_limit/sht35_get_low_alert_limit test.
+sht35: set is 0xDADD.
+sht35: clear is 0x5609.
+sht35: check low alert limit set ok.
+sht35: check low alert limit clear ok.
+sht35: sht35_alert_limit_convert_to_register test.
+sht35: 80.00% 60.00C converted 0xCD33.
+sht35: 22.00% -9.00C converted 0x3869.
 sht35: finish register test.
 ```
 
@@ -195,170 +228,212 @@ sht35: start read test.
 sht35: continuous read.
 sht35: set low repeatability.
 sht35: set rate 0.5Hz.
-sht35: temperature is 28.17C.
+sht35: temperature is 29.13C.
+sht35: humidity is 27.53%.
+sht35: temperature is 29.65C.
 sht35: humidity is 27.32%.
-sht35: temperature is 29.21C.
-sht35: humidity is 27.32%.
-sht35: temperature is 29.57C.
-sht35: humidity is 27.50%.
+sht35: temperature is 29.79C.
+sht35: humidity is 26.81%.
 sht35: set rate 1Hz.
 sht35: temperature is 29.85C.
-sht35: humidity is 26.48%.
-sht35: temperature is 29.93C.
-sht35: humidity is 26.46%.
-sht35: temperature is 29.96C.
-sht35: humidity is 25.87%.
+sht35: humidity is 26.40%.
+sht35: temperature is 29.82C.
+sht35: humidity is 26.19%.
+sht35: temperature is 30.00C.
+sht35: humidity is 26.09%.
 sht35: set rate 2Hz.
-sht35: temperature is 29.98C.
-sht35: humidity is 25.83%.
-sht35: temperature is 29.99C.
-sht35: humidity is 25.95%.
-sht35: temperature is 30.12C.
-sht35: humidity is 25.71%.
+sht35: temperature is 29.93C.
+sht35: humidity is 26.09%.
+sht35: temperature is 30.02C.
+sht35: humidity is 26.05%.
+sht35: temperature is 29.96C.
+sht35: humidity is 26.00%.
 sht35: set rate 4Hz.
-sht35: temperature is 30.09C.
-sht35: humidity is 25.91%.
-sht35: temperature is 30.08C.
+sht35: temperature is 29.90C.
+sht35: humidity is 25.89%.
+sht35: temperature is 29.93C.
+sht35: humidity is 26.05%.
+sht35: temperature is 29.99C.
+sht35: humidity is 25.94%.
+sht35: set rate 10Hz.
+sht35: temperature is 29.93C.
 sht35: humidity is 25.95%.
 sht35: temperature is 30.06C.
-sht35: humidity is 25.86%.
-sht35: set rate 10Hz.
-sht35: temperature is 30.19C.
-sht35: humidity is 25.69%.
-sht35: temperature is 30.23C.
-sht35: humidity is 25.74%.
-sht35: temperature is 30.22C.
-sht35: humidity is 25.70%.
+sht35: humidity is 25.98%.
+sht35: temperature is 29.93C.
+sht35: humidity is 25.98%.
 sht35: set medium repeatability.
 sht35: set rate 0.5Hz.
-sht35: temperature is 30.20C.
-sht35: humidity is 25.63%.
-sht35: temperature is 30.23C.
-sht35: humidity is 25.58%.
-sht35: temperature is 30.29C.
-sht35: humidity is 25.75%.
+sht35: temperature is 30.02C.
+sht35: humidity is 25.99%.
+sht35: temperature is 29.96C.
+sht35: humidity is 26.00%.
+sht35: temperature is 30.03C.
+sht35: humidity is 26.26%.
 sht35: set rate 1Hz.
-sht35: temperature is 30.34C.
-sht35: humidity is 26.13%.
-sht35: temperature is 30.36C.
-sht35: humidity is 26.09%.
-sht35: temperature is 30.46C.
-sht35: humidity is 25.92%.
+sht35: temperature is 30.09C.
+sht35: humidity is 26.33%.
+sht35: temperature is 30.03C.
+sht35: humidity is 26.28%.
+sht35: temperature is 30.04C.
+sht35: humidity is 26.05%.
 sht35: set rate 2Hz.
-sht35: temperature is 30.46C.
-sht35: humidity is 26.08%.
-sht35: temperature is 30.48C.
-sht35: humidity is 26.11%.
-sht35: temperature is 30.51C.
-sht35: humidity is 25.74%.
+sht35: temperature is 30.06C.
+sht35: humidity is 25.99%.
+sht35: temperature is 30.06C.
+sht35: humidity is 25.86%.
+sht35: temperature is 30.00C.
+sht35: humidity is 25.91%.
 sht35: set rate 4Hz.
-sht35: temperature is 30.54C.
-sht35: humidity is 25.53%.
-sht35: temperature is 30.54C.
-sht35: humidity is 25.40%.
-sht35: temperature is 30.53C.
-sht35: humidity is 25.28%.
+sht35: temperature is 30.09C.
+sht35: humidity is 25.95%.
+sht35: temperature is 30.07C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.09C.
+sht35: humidity is 25.90%.
 sht35: set rate 10Hz.
-sht35: temperature is 30.61C.
-sht35: humidity is 25.14%.
-sht35: temperature is 30.56C.
-sht35: humidity is 25.10%.
-sht35: temperature is 30.59C.
-sht35: humidity is 24.94%.
+sht35: temperature is 30.07C.
+sht35: humidity is 25.84%.
+sht35: temperature is 30.04C.
+sht35: humidity is 25.93%.
+sht35: temperature is 30.06C.
+sht35: humidity is 25.90%.
 sht35: set high repeatability.
 sht35: set rate 0.5Hz.
-sht35: temperature is 30.73C.
-sht35: humidity is 24.78%.
-sht35: temperature is 30.61C.
-sht35: humidity is 24.45%.
-sht35: temperature is 30.66C.
-sht35: humidity is 24.36%.
+sht35: temperature is 30.06C.
+sht35: humidity is 25.95%.
+sht35: temperature is 30.07C.
+sht35: humidity is 25.95%.
+sht35: temperature is 30.07C.
+sht35: humidity is 25.95%.
 sht35: set rate 1Hz.
-sht35: temperature is 30.69C.
-sht35: humidity is 24.24%.
-sht35: temperature is 30.74C.
-sht35: humidity is 24.26%.
-sht35: temperature is 30.77C.
-sht35: humidity is 24.25%.
+sht35: temperature is 30.10C.
+sht35: humidity is 26.03%.
+sht35: temperature is 30.10C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.12C.
+sht35: humidity is 25.86%.
 sht35: set rate 2Hz.
-sht35: temperature is 30.85C.
-sht35: humidity is 24.31%.
-sht35: temperature is 30.82C.
-sht35: humidity is 24.80%.
-sht35: temperature is 30.81C.
-sht35: humidity is 25.30%.
+sht35: temperature is 30.13C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.12C.
+sht35: humidity is 25.85%.
+sht35: temperature is 30.13C.
+sht35: humidity is 25.80%.
 sht35: set rate 4Hz.
-sht35: temperature is 30.81C.
-sht35: humidity is 25.56%.
-sht35: temperature is 30.85C.
-sht35: humidity is 25.67%.
-sht35: temperature is 30.85C.
-sht35: humidity is 25.69%.
+sht35: temperature is 30.14C.
+sht35: humidity is 25.62%.
+sht35: temperature is 30.12C.
+sht35: humidity is 25.75%.
+sht35: temperature is 30.12C.
+sht35: humidity is 25.78%.
 sht35: set rate 10Hz.
-sht35: temperature is 30.84C.
-sht35: humidity is 25.52%.
-sht35: temperature is 30.87C.
-sht35: humidity is 25.49%.
-sht35: temperature is 30.87C.
-sht35: humidity is 25.37%.
+sht35: temperature is 30.14C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.14C.
+sht35: humidity is 25.94%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.97%.
 sht35: single read.
 sht35: set low repeatability.
-sht35: temperature is 30.90C.
-sht35: humidity is 25.20%.
-sht35: temperature is 30.94C.
-sht35: humidity is 25.22%.
-sht35: temperature is 30.90C.
-sht35: humidity is 24.86%.
+sht35: temperature is 30.17C.
+sht35: humidity is 26.02%.
+sht35: temperature is 30.17C.
+sht35: humidity is 25.88%.
+sht35: temperature is 30.10C.
+sht35: humidity is 25.95%.
 sht35: set medium repeatability.
-sht35: temperature is 30.91C.
-sht35: humidity is 24.72%.
-sht35: temperature is 30.87C.
-sht35: humidity is 24.53%.
-sht35: temperature is 30.94C.
-sht35: humidity is 24.25%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.86%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.17C.
+sht35: humidity is 25.88%.
 sht35: set high repeatability.
-sht35: temperature is 30.94C.
-sht35: humidity is 24.15%.
-sht35: temperature is 30.94C.
-sht35: humidity is 24.00%.
-sht35: temperature is 30.97C.
-sht35: humidity is 23.89%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.89%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.91%.
+sht35: temperature is 30.17C.
+sht35: humidity is 25.91%.
 sht35: disable clock stretching.
-sht35: temperature is 30.98C.
-sht35: humidity is 23.82%.
-sht35: temperature is 30.99C.
-sht35: humidity is 23.79%.
-sht35: temperature is 30.99C.
-sht35: humidity is 23.73%.
+sht35: temperature is 30.16C.
+sht35: humidity is 25.92%.
+sht35: temperature is 30.20C.
+sht35: humidity is 25.94%.
+sht35: temperature is 30.17C.
+sht35: humidity is 25.86%.
 sht35: finish read test.
+```
+
+```shell
+./sht35 -t alert --addr=0 --timeout=10000 --high-limit-temp=30.0 --high-limit-humi=50.0 --low-limit-temp=25.0 --low-limit-humi=30.0
+
+sht35: chip is Sensirion SHT35.
+sht35: manufacturer is Sensirion.
+sht35: interface is IIC.
+sht35: driver version is 2.0.
+sht35: min supply voltage is 2.4V.
+sht35: max supply voltage is 5.5V.
+sht35: max current is 1.50mA.
+sht35: max temperature is 125.0C.
+sht35: min temperature is -40.0C.
+sht35: start alert test.
+sht35: high limit temperature is 30.00C.
+sht35: high limit humidity is 50.00%.
+sht35: low limit temperature is 25.00C.
+sht35: low limit humidity is 30.00%.
+sht35: irq alert pending status.
+sht35: irq humidity alert.
+sht35: irq temperature alert.
+sht35: finish alert test.
 ```
 
 ```shell
 ./sht35 -e read --addr=0 --times=3
 
 sht35: 1/3.
-sht35: temperature is 31.50C.
-sht35: humidity is 23.11%.
+sht35: temperature is 29.59C.
+sht35: humidity is 25.88%.
 sht35: 2/3.
-sht35: temperature is 31.17C.
-sht35: humidity is 23.14%.
+sht35: temperature is 29.44C.
+sht35: humidity is 26.00%.
 sht35: 3/3.
-sht35: temperature is 30.98C.
-sht35: humidity is 23.28%.
+sht35: temperature is 29.35C.
+sht35: humidity is 26.11%.
 ```
 
 ```shell
 ./sht35 -e shot --addr=0 --times=3
 
 sht35: 1/3.
-sht35: temperature is 30.02C.
-sht35: humidity is 24.66%.
+sht35: temperature is 29.14C.
+sht35: humidity is 26.40%.
 sht35: 2/3.
-sht35: temperature is 29.99C.
-sht35: humidity is 24.66%.
+sht35: temperature is 29.13C.
+sht35: humidity is 26.43%.
 sht35: 3/3.
-sht35: temperature is 29.96C.
-sht35: humidity is 24.63%.
+sht35: temperature is 29.13C.
+sht35: humidity is 26.47%.
+```
+
+```shell
+./sht35 -e alert --addr=0 --timeout=10000 --high-limit-temp=30.0 --high-limit-humi=50.0 --low-limit-temp=25.0 --low-limit-humi=30.0
+
+sht35: high limit temperature is 30.00C.
+sht35: high limit humidity is 50.00%.
+sht35: low limit temperature is 25.00C.
+sht35: low limit humidity is 30.00%.
+sht35: irq alert pending status.
+sht35: irq humidity alert.
+sht35: irq temperature alert.
+sht35: finish.
+```
+
+```shell
+./sht35 -e sn --addr=0
+
+sht35: serial number is 0x10 0xE2 0x41 0x1F.
 ```
 
 ```shell
@@ -370,18 +445,27 @@ Usage:
   sht35 (-p | --port)
   sht35 (-t reg | --test=reg) [--addr=<0 | 1>]
   sht35 (-t read | --test=read) [--addr=<0 | 1>] [--times=<num>]
+  sht35 (-t alert | --test=alert) [--addr=<0 | 1>] [--timeout=<ms>] [--high-limit-temp=<degree>] [--high-limit-humi=<percentage>]
+        [--low-limit-temp=<degree>] [--low-limit-humi=<percentage>]
   sht35 (-e read | --example=read) [--addr=<0 | 1>] [--times=<num>]
   sht35 (-e shot | --example=shot) [--addr=<0 | 1>] [--times=<num>]
+  sht35 (-e alert | --example=alert) [--addr=<0 | 1>] [--timeout=<ms>] [--high-limit-temp=<degree>] [--high-limit-humi=<percentage>]
+        [--low-limit-temp=<degree>] [--low-limit-humi=<percentage>]
 
 Options:
       --addr=<0 | 1>    Set the addr pin.([default: 0])
-  -e <read | shot>, --example=<read | shot>
+  -e <read | shot | alert | sn>, --example=<read | shot | alert | sn>
                         Run the driver example.
+      --low-limit-temp  Low limit temperature in degress.([default: 25.0])
+      --low-limit-humi  Low limit humidity in percentage.([default: 30.0])
   -h, --help            Show the help.
+      --high-limit-temp High limit temperature in degress.([default: 30.0])
+      --high-limit-humi High limit humidity in percentage.([default: 50.0])
   -i, --information     Show the chip information.
   -p, --port            Display the pin connections of the current board.
-  -t <reg | read>, --test=<reg | read>
+  -t <reg | read | alert>, --test=<reg | read | alert>
                         Run the driver test.
       --times=<num>     Set the running times.([default: 3])
+      --timeout=<ms>    Set timeout in ms.([default: 10000])
 ```
 
