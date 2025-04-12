@@ -6,5 +6,6 @@ var group__sht35__link__driver =
     [ "DRIVER_SHT35_LINK_IIC_INIT", "group__sht35__link__driver.html#ga6049cddbc90283ff71fd57161fa3a1e6", null ],
     [ "DRIVER_SHT35_LINK_IIC_READ_ADDRESS16", "group__sht35__link__driver.html#ga78abc170593ab37946b52f1316799091", null ],
     [ "DRIVER_SHT35_LINK_IIC_WRITE_ADDRESS16", "group__sht35__link__driver.html#ga11ae8b01ba2c0caa169330d7d222fae0", null ],
-    [ "DRIVER_SHT35_LINK_INIT", "group__sht35__link__driver.html#ga5366c346d87774175c7680f41818c448", null ]
+    [ "DRIVER_SHT35_LINK_INIT", "group__sht35__link__driver.html#ga5366c346d87774175c7680f41818c448", null ],
+    [ "DRIVER_SHT35_LINK_RECEIVE_CALLBACK", "group__sht35__link__driver.html#ga377997ed5ab7637860c7afc877db7d53", null ]
 ];

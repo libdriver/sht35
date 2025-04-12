@@ -6,5 +6,6 @@ var group__sht35__interface__driver =
     [ "sht35_interface_iic_init", "group__sht35__interface__driver.html#ga06c85070e68a46b67cf0fba5dfbc0a5e", null ],
     [ "sht35_interface_iic_read_address16", "group__sht35__interface__driver.html#ga6bc050393fa1059ee91d272a00c4e5c4", null ],
     [ "sht35_interface_iic_scl_read_address16", "group__sht35__interface__driver.html#ga8b15a14a7e4b8deafff7a42c8250e6d3", null ],
-    [ "sht35_interface_iic_write_address16", "group__sht35__interface__driver.html#ga17dfbaca490ca197c62e1cdfe5886601", null ]
+    [ "sht35_interface_iic_write_address16", "group__sht35__interface__driver.html#ga17dfbaca490ca197c62e1cdfe5886601", null ],
+    [ "sht35_interface_receive_callback", "group__sht35__interface__driver.html#gad7b674496f10e3151f81d5fd67a4237d", null ]
 ];

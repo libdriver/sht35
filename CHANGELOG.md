@@ -1,3 +1,9 @@
+## 2.0.5 (2025-04-12)
+
+## Features
+
+- add sn && alert functions
+
 ## 2.0.4 (2025-03-15)
 
 ## Bug Fixes
