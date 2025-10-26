@@ -96,9 +96,9 @@ We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g
    ```
 10. Run sht35 sn function.
 
-   ```shell
+    ```shell
    sht35 (-e sn | --example=sn) [--addr=<0 | 1>]
-   ```
+    ```
 
 #### 3.2 Command Example
 
