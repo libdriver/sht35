@@ -231,6 +231,7 @@ uint8_t sht35_init(sht35_handle_t *handle)
         
         return 1;                                                            /* return error */
     }
+    handle->delay_ms(2);                                                     /* delay 2ms */
     handle->inited = 1;                                                      /* flag finish initialization */
     
     return 0;                                                                /* success return 0 */
@@ -870,6 +871,7 @@ uint8_t sht35_soft_reset(sht35_handle_t *handle)
            
         return 1;                                                     /* return error */
     }
+    handle->delay_ms(2);                                              /* delay 2ms */
     
     return 0;                                                         /* success return 0 */
 }
