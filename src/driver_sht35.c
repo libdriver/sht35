@@ -222,6 +222,17 @@ uint8_t sht35_init(sht35_handle_t *handle)
        
         return 1;                                                            /* return error */
     }
+
+    command = SHT35_COMMAND_BREAK;                                      /* set command */
+    res = a_sht35_write(handle, command);                                    /* write command */
+    if (res != 0)                                                            /* check result */
+    {
+        handle->debug_print("sht35: break command failed.\n");               /* write command failed */
+        (void)handle->iic_deinit();                                          /* close iic */
+        
+        return 1;                                                            /* return error */
+    }
+
     command = SHT35_COMMAND_SOFT_RESET;                                      /* set command */
     res = a_sht35_write(handle, command);                                    /* write command */
     if (res != 0)                                                            /* check result */
